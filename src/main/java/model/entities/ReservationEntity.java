@@ -4,6 +4,7 @@ import model.exceptions.DomainException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class ReservationEntity {
 
@@ -43,8 +44,9 @@ public class ReservationEntity {
         return checkOut;
     }
 
-    public Integer duration() {
-        return checkIn.compareTo(checkOut);
+    public Long duration() {
+        long diff = checkOut.getTime() - checkIn.getTime();
+        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
     public void updateDates(Date checkIn, Date checkOut){
