@@ -1,8 +1,5 @@
 package org.example;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
